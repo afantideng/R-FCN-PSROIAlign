@@ -1,0 +1,55 @@
+【Res100 Baseline】
+./tools/train_net.py --gpu 0 --solver models/coco/ResNet-50/rfcn_end2end/solver.prototxt --weights ../imagenet_pre_models/ResNet-101-model.caffemodel --imdb coco_2014_train --iters 960000 --cfg experiments/cfgs/rfcn_end2end.yml
+
+./tools/test_net.py --gpu 0 --def models/coco/ResNet-101/rfcn_end2end/test_agnostic.prototxt --net resnet101_rfcn_coco.caffemodel --imdb coco_2014_val --cfg experiments/cfgs/rfcn_end2end.yml
+
+
+【1018a】
+备注： sample_num 4
+
+./tools/train_net.py --gpu 0 --solver models/coco/1018a/solver.prototxt --weights ../imagenet_pre_models/ResNet-101-model.caffemodel --imdb coco_2014_train --iters 960000 --cfg models/coco/1018a/1018a.yml
+
+./tools/train_net.py --gpu 0 --solver models/coco/1018a/solver_ft.prototxt --weights output/1018a/coco_2014_train/res101_rfcn_coco_1018a_iter_640000.caffemodel --imdb coco_2014_train --iters 320000 --cfg models/coco/1018a/1018a.yml
+
+./tools/test_net.py --gpu 0 --def models/coco/1018a/test_agnostic.prototxt --net $MODELPATH/rfcn/1018a/coco2014/res101_rfcn_coco_1018a_iter_640000.caffemodel --imdb coco_2014_val --cfg models/coco/1018a/1018a.yml
+
+
+【1018a_ohem】
+备注： sample_num 4
+
+./tools/train_net.py --gpu 1 --solver models/coco/1018a_ohem/solver_ohem.prototxt --weights ../imagenet_pre_models/ResNet-101-model.caffemodel --imdb coco_2014_train --iters 1920000 --cfg models/coco/1018a_ohem/1018a_ohem.yml
+
+./tools/train_net.py --gpu 0 --solver models/coco/1018a_ohem/solver_ohem_ft.prototxt --weights $MODELPATH/rfcn/1018a_ohem/coco2014/res101_rfcn_coco_1018a_ohem_iter_1810000.caffemodel --imdb coco_2014_train --iters 200000 --cfg models/coco/1018a_ohem/1018a_ohem.yml
+
+./tools/test_net.py --gpu 1 --def models/coco/1018a_ohem/test_agnostic.prototxt --net $MODELPATH/rfcn/1018a_ohem/coco2014/res101_rfcn_coco_1018a_ohem_iter_1810000.caffemodel --imdb coco_2014_val --cfg models/coco/1018a/1018a.yml
+
+./tools/test_net.py --gpu 0 --def models/coco/1018a_ohem/test_agnostic.prototxt --net $MODELPATH/rfcn/1018a_ohem/coco2014/res101_rfcn_coco_1018a_ohem_181w_iter_200000.caffemodel --imdb coco_2014_val --cfg models/coco/1018a/1018a.yml
+
+
+
+【1018b】
+备注： sample_num 1
+
+./tools/train_net.py --gpu 1 --solver models/coco/1018b/solver.prototxt --weights ../imagenet_pre_models/ResNet-101-model.caffemodel --imdb coco_2014_train --iters 960000 --cfg models/coco/1018b/1018b.yml
+
+./tools/train_net.py --gpu 1 --solver models/coco/1018b/solver_ft.prototxt --weights output/1018b/coco_2014_train/res101_rfcn_coco_1018b_iter_640000.caffemodel --imdb coco_2014_train --iters 320000 --cfg models/coco/1018b/1018b.yml
+
+./tools/test_net.py --gpu 0 --def models/coco/1018b/test_agnostic.prototxt --net $MODELPATH/rfcn/1018b/coco2014/res101_rfcn_coco_1018b_64w_iter_300000.caffemodel  --imdb coco_2014_val --cfg models/coco/1018b/1018b.yml
+
+
+
+【1018b_ohem】
+备注： sample_num 1
+
+./tools/train_net.py --gpu 0 --solver models/coco/1018b/solver_ohem.prototxt --weights ../imagenet_pre_models/ResNet-101-model.caffemodel --imdb coco_2014_train --iters 1500000 --cfg models/coco/1018b_ohem/1018b_ohem.yml
+
+./tools/test_net.py --gpu 1 --def models/coco/1018b/test_agnostic.prototxt --net $MODELPATH/rfcn/1018b_ohem/coco2014/res101_rfcn_coco_1018b_ohem_iter_1400000.caffemodel --imdb coco_2014_val --cfg models/coco/1018b/1018b.yml
+
+
+
+【1018c】
+备注： sample_num 1, 加了额外的卷积层防止梯度溢出
+
+./tools/train_net.py --gpu 1 --solver models/coco/1018c/solver.prototxt --weights ../imagenet_pre_models/ResNet-101-model.caffemodel --imdb coco_2014_train --iters 960000 --cfg models/coco/1018c/1018c.yml
+
+./tools/test_net.py --gpu 1 --def models/coco/1018c/test_agnostic.prototxt --net $MODELPATH/rfcn/1018c/res101_rfcn_1018c_coco_iter_960000.caffemodel --imdb coco_2014_val --cfg models/coco/1018c/1018c.yml

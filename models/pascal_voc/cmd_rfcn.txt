@@ -1,0 +1,38 @@
+【Res50 Baseline】
+./tools/train_net.py --gpu 0 --solver models/pascal_voc/ResNet-50/rfcn_end2end/solver.prototxt --weights ../imagenet_pre_models/ResNet-50-model.caffemodel --imdb voc_2007_trainval --iters 110000 --cfg experiments/cfgs/rfcn_end2end.yml
+
+./tools/test_net.py --gpu 0 --def models/pascal_voc/ResNet-50/rfcn_end2end/test_agnostic.prototxt --net $MODELPATH/rfcn/resnet50/resnet50_rfcn_iter_110000.caffemodel --imdb voc_2007_test --cfg experiments/cfgs/rfcn_end2end.yml
+
+
+【1017a】
+./tools/train_net.py --gpu 1 --solver models/pascal_voc/1017a/solver.prototxt --weights ../imagenet_pre_models/ResNet-50-model.caffemodel --imdb voc_2007_trainval --iters 110000 --cfg models/pascal_voc/1017a/1017a.yml
+
+./tools/test_net.py --gpu 1 --def models/pascal_voc/1017a/test_agnostic.prototxt --net $MODELPATH/rfcn/1017a/res50_rfcn_1017a_iter_110000.caffemodel --imdb voc_2007_test --cfg models/pascal_voc/1017a/1017a.yml
+
+
+【1017b】
+./tools/train_net.py --gpu 0 --solver models/pascal_voc/1017b/solver.prototxt --weights ../imagenet_pre_models/ResNet-50-model.caffemodel --imdb voc_2007_trainval --iters 150000 --cfg models/pascal_voc/1017b/1017b.yml
+
+./tools/test_net.py --gpu 0 --def models/pascal_voc/1017b/test_agnostic.prototxt --net $MODELPATH/rfcn/1017b/res50_rfcn_1017b_iter_110000.caffemodel --imdb voc_2007_test --cfg models/pascal_voc/1017b/1017b.yml
+
+
+【1017c】
+./tools/train_net.py --gpu 1 --solver models/pascal_voc/1017c/solver.prototxt --weights ../imagenet_pre_models/ResNet-50-model.caffemodel --imdb voc_2007_trainval --iters 150000 --cfg models/pascal_voc/1017c/1017c.yml
+
+./tools/test_net.py --gpu 1 --def models/pascal_voc/1017c/test_agnostic.prototxt --net $MODELPATH/rfcn/1017c/res50_rfcn_1017c_iter_110000.caffemodel --imdb voc_2007_test --cfg models/pascal_voc/1017c/1017c.yml
+
+
+---------------------------------------------------- 正确分割线 ---------------------------------------------------------
+
+【1018a】
+备注： sample_num 4
+./tools/train_net.py --gpu 0 --solver models/pascal_voc/1018a/solver.prototxt --weights ../imagenet_pre_models/ResNet-50-model.caffemodel --imdb voc_2007_trainval --iters 110000 --cfg models/pascal_voc/1018a/1018a.yml
+
+./tools/test_net.py --gpu 0 --def models/pascal_voc/1018a/test_agnostic.prototxt --net $MODELPATH/rfcn/1018a/voc2007/res50_rfcn_1018a_iter_95000.caffemodel --imdb voc_2007_test --cfg models/pascal_voc/1018a/1018a.yml
+
+
+【1018b】
+备注： sample_num 1
+./tools/train_net.py --gpu 0 --solver models/pascal_voc/1018b/solver.prototxt --weights ../imagenet_pre_models/ResNet-50-model.caffemodel --imdb voc_2007_trainval --iters 120000 --cfg models/pascal_voc/1018b/1018b.yml
+
+./tools/test_net.py --gpu 1 --def models/pascal_voc/1018b/test_agnostic.prototxt --net $MODELPATH/rfcn/1018b/res50_rfcn_1018b_iter_110000.caffemodel --imdb voc_2007_test --cfg models/pascal_voc/1018b/1018b.yml
