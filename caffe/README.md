@@ -2,6 +2,8 @@ This branch of Caffe extends [BVLC-led Caffe](https://github.com/BVLC/caffe) by 
 
 **Update**: this branch is not actively maintained. Please checkout [this](https://github.com/BVLC/caffe/tree/windows) for more active Windows support.
 
+支持PS-ROIAlign功能的caffe
+
 ---
 
 # Caffe
